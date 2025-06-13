@@ -16,15 +16,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="h-screen flex flex-col bg-white">
       {/* Header */}
       <Header />
 
       {/* Main content area */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar */}
+        {/* Sidebar - hidden on mobile */}
         <div
-          className={`transition-all duration-300 ${sidebarCollapsed ? "w-0" : "w-64"} overflow-hidden`}
+          className={`hidden md:block transition-all duration-300 ${sidebarCollapsed ? "w-0" : "w-64"} overflow-hidden`}
         >
           <ChatSidebar
             isCollapsed={sidebarCollapsed}
