@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="h-14 bg-gray-800 border-b border-gray-700 flex items-center justify-between px-6">
+    <header className="h-14 bg-gray-800 border-b border-gray-700 flex items-center justify-between px-4 md:px-6">
       {/* Left section - Logo */}
       <div className="flex items-center gap-2">
         <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center">
@@ -18,8 +18,8 @@ const Header = () => {
         <span className="text-white font-semibold text-lg">LawGPT</span>
       </div>
 
-      {/* Center section - Navigation */}
-      <nav className="flex items-center gap-8">
+      {/* Center section - Navigation (hidden on mobile) */}
+      <nav className="hidden md:flex items-center gap-8">
         <button className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
           Consult
         </button>
