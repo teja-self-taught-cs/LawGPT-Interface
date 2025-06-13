@@ -22,8 +22,8 @@ const ChatSidebar = ({ isCollapsed, onToggle }: ChatSidebarProps) => {
   }));
 
   return (
-    <Sidebar className="w-64 bg-gray-100 border-r border-gray-200">
-      <SidebarHeader className="flex flex-row items-center justify-between p-3 border-b border-gray-200">
+    <div className="w-64 h-full bg-gray-100 border-r border-gray-200 flex flex-col">
+      <div className="flex flex-row items-center justify-between p-3 border-b border-gray-200">
         <Button
           variant="ghost"
           size="icon"
@@ -32,20 +32,21 @@ const ChatSidebar = ({ isCollapsed, onToggle }: ChatSidebarProps) => {
         >
           <ChevronLeft className="w-4 h-4" />
         </Button>
-      </SidebarHeader>
+      </div>
 
-      <SidebarContent className="p-3">
-        <SidebarMenu>
+      <div className="flex-1 p-3 overflow-y-auto">
+        <div className="space-y-1">
           {chatTitles.map((chat) => (
-            <SidebarMenuItem key={chat.id}>
-              <SidebarMenuButton className="w-full justify-start text-left p-3 rounded-lg hover:bg-gray-200 text-gray-700 text-sm">
-                {chat.title}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            <button
+              key={chat.id}
+              className="w-full text-left p-3 rounded-lg hover:bg-gray-200 text-gray-700 text-sm font-medium transition-colors"
+            >
+              {chat.title}
+            </button>
           ))}
-        </SidebarMenu>
-      </SidebarContent>
-    </Sidebar>
+        </div>
+      </div>
+    </div>
   );
 };
 
