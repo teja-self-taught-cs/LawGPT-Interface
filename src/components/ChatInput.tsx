@@ -30,7 +30,7 @@ const ChatInput = ({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6">
+    <div className="w-full max-w-3xl mx-auto p-4 md:p-6">
       <form onSubmit={handleSubmit} className="relative">
         <div className="relative flex items-center">
           <Input
@@ -38,7 +38,7 @@ const ChatInput = ({
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
-            className="w-full pr-12 py-4 text-base rounded-xl border-gray-300 focus:border-gray-400 focus:ring-1 focus:ring-gray-400 bg-white shadow-sm"
+            className="w-full pr-12 py-3 md:py-4 text-sm md:text-base rounded-xl border-gray-300 focus:border-gray-400 focus:ring-1 focus:ring-gray-400 bg-white shadow-sm"
           />
           <Button
             type="submit"
