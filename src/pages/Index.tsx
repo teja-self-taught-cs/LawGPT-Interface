@@ -1,40 +1,39 @@
+import { useState } from "react";
+import Header from "@/components/Header";
+import ChatSidebar from "@/components/ChatSidebar";
+import MainChatArea from "@/components/MainChatArea";
+
 const Index = () => {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const handleSendMessage = (message: string) => {
+    console.log("Sending message:", message);
+    // Here you would typically send the message to your API
+  };
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* Header */}
+      <Header />
+
+      {/* Main content area */}
+      <div className="flex-1 flex overflow-hidden">
+        {/* Sidebar */}
+        <div
+          className={`transition-all duration-300 ${sidebarCollapsed ? "w-0" : "w-64"} overflow-hidden`}
+        >
+          <ChatSidebar
+            isCollapsed={sidebarCollapsed}
+            onToggle={toggleSidebar}
+          />
+        </div>
+
+        {/* Main chat area */}
+        <MainChatArea onSendMessage={handleSendMessage} />
       </div>
     </div>
   );
