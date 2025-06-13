@@ -1,13 +1,5 @@
 import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-} from "@/components/ui/sidebar";
 
 interface ChatSidebarProps {
   isCollapsed?: boolean;
